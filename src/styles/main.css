@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background: rgb(251, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(251, 255, 255, 1) 11%,
+    rgba(184, 199, 233, 1) 53%,
+    rgba(100, 149, 237, 1) 91%
+  );
+}
+
+/* h1 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+} */
