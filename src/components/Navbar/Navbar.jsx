@@ -6,14 +6,15 @@ const Nav = () => {
   const { Header } = Layout;
 
   const items = [
-    // {
-    //   label: (
-    //     <Button type="primary" onClick={() => navigate("/login")}>
-    //       Log In
-    //     </Button>
-    //   ),
-    //   key: "button",
-    // },
+    {
+      label: (
+        <img
+          width="40"
+          src="https://img.freepik.com/free-vector/detailed-travel-logo_23-2148616611.jpg?w=2000"
+        />
+      ),
+      key: "logo",
+    },
     {
       label: "Tours",
       key: "tour",
@@ -29,7 +30,7 @@ const Nav = () => {
     {
       label: (
         <a
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/home-page")}
           target="_blank"
           rel="noopener noreferrer">
           Home
@@ -37,20 +38,20 @@ const Nav = () => {
       ),
       key: "home",
     },
-    {
-      label: (
-        <Button type="primary" onClick={() => navigate("/login")}>
-          Log In
-        </Button>
-      ),
-      key: "button",
-    },
+    // {
+    //   label: (
+    //     <Button type="primary" onClick={() => navigate("/login")}>
+    //       Log In
+    //     </Button>
+    //   ),
+    //   key: "button",
+    // },
   ];
 
   const navigate = useNavigate();
 
   return (
-    <Layout className="layout">
+    <div className="layout">
       <Header
         style={{
           backgroundColor: "cornflowerblue",
@@ -63,23 +64,36 @@ const Nav = () => {
           // justifyContent: "space-between",
           // alignItems: "center",
         }}>
-        <div className="logo" />
-
-        <Menu
+        <div
           style={{
-            backgroundColor: "cornflowerblue",
-          }}
-          breakpoint="xs"
-          mode="horizontal"
-          defaultSelectedKeys={["2"]}
-          items={items}
-        />
+            display: "flex",
+            justifyContent: "space-between",
+          }}>
+          <Menu
+            style={{
+              backgroundColor: "cornflowerblue",
+            }}
+            breakpoint="xs"
+            mode="horizontal"
+            defaultSelectedKeys={["2"]}
+            items={items}
+          />
+          <Button
+            style={{
+              marginTop: "10px",
+              marginRight: "20px",
+            }}
+            type="primary"
+            onClick={() => navigate("/login")}>
+            Log In
+          </Button>
+        </div>
 
         {/* <Button type="primary" onClick={() => navigate("/login")}>
           Log In
         </Button> */}
       </Header>
-    </Layout>
+    </div>
   );
 };
 

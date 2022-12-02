@@ -9,6 +9,13 @@ import UpdateProduct from "./componentsAizat/UpdateProduct/UpdateProduct";
 import AddCategory from "./componentsAizat/AddCategory/AddCategory";
 import AddGuide from "./componentsAizat/AddGuide/AddGuide";
 
+//user
+import Login from "./pages/Login";
+import RegisterSuccess from "./pages/RegisterSuccess";
+import Registration from "./pages/Registration";
+import Details from "./components/Details/Details";
+
+
 const Routing = () => {
   const LIST_ROUTES = [
     {
@@ -40,13 +47,37 @@ const Routing = () => {
       link: "/add-guide",
       element: <AddGuide />,
       id: 6,
+  },
+    {
+      link: "/register",
+      element: <Registration />,
+      id: 7,
+    },
+    {
+      link: "/login",
+      element: <Login />,
+      id: 8,
+    },
+    {
+      link: "/register-success",
+      element: <RegisterSuccess />,
+      id: 9,
+    },
+
+    {
+      link: "/details",
+      element: <Details />,
+      id: 10,
     },
   ];
+
+
   return (
     <Routes>
-      {LIST_ROUTES.map(item => (
-        <Route path={item.link} element={item.element} key={item.id} />
-      ))}
+      {LIST_ROUTES.map(item => {
+        // console.log(item);
+        return <Route path={item.link} element={item.element} key={item.id} />;
+      })}
     </Routes>
   );
 };

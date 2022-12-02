@@ -4,18 +4,17 @@ import Navbar from "./components/Navbar/Navbar";
 import Routing from "./Routing";
 import AuthContextProvider from "./context/authContext";
 import ProductsContextProvider from "./contexts/ProductContexts";
+import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
   return (
-    <>
-      <ProductsContextProvider>
-        <AuthContextProvider>
-          <Navbar />
-          <Routing />
-          <AntdFooter />
-        </AuthContextProvider>
-      </ProductsContextProvider>
-    </>
+    <BrowserRouter>
+      <AuthContextProvider>
+        <Navbar />
+        <Routing />
+        <AntdFooter />
+      </AuthContextProvider>
+    </BrowserRouter>
   );
 };
 

@@ -128,6 +128,7 @@ const ProductsContextProvider = ({ children }) => {
       console.log(err);
     }
   }
+
   // async function updateProduct(id, editedProduct, navigate) {
   //   try {
   //     const tokens = JSON.parse(localStorage.getItem("tokens"));
@@ -201,6 +202,56 @@ const ProductsContextProvider = ({ children }) => {
   //   }
   //  }
 
+  async function updateProduct(id, editedProduct, navigate) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const res = await axios.put(`${API}tour/${id}`, editedProduct);
+      navigate("/products");
+      getProducts();
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function deleteProduct(slug) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const res = await axios.delete(`${API}tour/${slug}/`);
+      getProducts();
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function toggleLike(slug) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const res = await axios(`${API}tour/${slug}`);
+      getProducts();
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  async function createComment(slug, content) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const res = await axios.post(`${API}`, content);
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  async function deleteComment(productId, commentId) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const res = `${API}`;
+      getOneProduct(productId);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+
   return (
     <productsContexts.Provider
       value={{
@@ -212,11 +263,13 @@ const ProductsContextProvider = ({ children }) => {
         getProducts,
         createProduct,
         getOneProduct,
+
         // updateProduct,
         // deleteProduct,
         // toggleLike,
         // createComment ,
         // deleteComment,
+
       }}>
       {children}
     </productsContexts.Provider>

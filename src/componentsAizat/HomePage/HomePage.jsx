@@ -24,7 +24,7 @@ const App = () => {
     console.log(currentSlide);
   };
   return (
-    <>
+    <div>
       <Carousel afterChange={onChange}>
         <div>
           <h3 style={contentStyle}>
@@ -264,7 +264,7 @@ const App = () => {
       <video
         src="https://www.youtube.com/watch?v=cgZrQ6MJ0ng"
         className="back-video"></video>
-    </>
+    </div>
   );
 };
 export default App;
