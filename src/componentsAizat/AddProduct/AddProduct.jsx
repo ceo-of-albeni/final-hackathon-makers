@@ -15,40 +15,40 @@ const onChange = (date, dateString) => {
 const AddProduct = () => {
   const navigate = useNavigate();
 
-  // const { getCategories, categories, createProduct } =
-  //   useContext(productsContexts);
+  const { getCategories, categories, createProduct } =
+    useContext(productsContexts);
 
-  // const [title, setTitle] = useState("");
-  // const [place, setPlace] = useState("");
-  // const [desc, setDesc] = useState("");
-  // const [numberOfDays, setNumber] = useState("");
-  // const [category, setCategory] = useState("");
-  // const [price, setPrice] = useState("");
-  // const [date, setDate] = useState("");
-  // const [peopleCount, setPeopleCount] = useState("");
-  // const [companyName, setCompanyName] = useState("");
-  // const [guide, setGuide] = useState("");
-  // const [images, setImages] = useState(null);
+  const [title, setTitle] = useState("");
+  const [place, setPlace] = useState("");
+  const [desc, setDesc] = useState("");
+  const [numberOfDays, setNumberOfDays] = useState("");
+  const [category, setCategory] = useState("");
+  const [price, setPrice] = useState("");
+  const [date, setDate] = useState("");
+  const [peopleCount, setPeopleCount] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [guide, setGuide] = useState("");
+  const [images, setImages] = useState(null);
 
-  // useEffect(() => {
-  //   getCategories();
-  // }, []);
+  useEffect(() => {
+    getCategories();
+  }, []);
 
-  // function saveProduct() {
-  //   let newProduct = new FormData();
-  //   newProduct.append("title", title);
-  //   newProduct.append("place", place);
-  //   newProduct.append("desc", desc);
-  //   newProduct.append("number_of_days", numberOfDays);
-  //   newProduct.append("level", category);
-  //   newProduct.append("price", price);
-  //   newProduct.append("date", date);
-  //   newProduct.append("people_count", peopleCount);
-  //   newProduct.append("company_name", companyName);
-  //   newProduct.append("guide", guide);
-  //   newProduct.append("tour_image_carousel", images);
-  //   createProduct(newProduct, navigate);
-  // }
+  function saveProduct() {
+    let newProduct = new FormData();
+    newProduct.append("title", title);
+    newProduct.append("place", place);
+    newProduct.append("desc", desc);
+    newProduct.append("number_of_days", numberOfDays);
+    newProduct.append("level", category);
+    newProduct.append("price", price);
+    newProduct.append("date", date);
+    newProduct.append("people_count", peopleCount);
+    newProduct.append("company_name", companyName);
+    newProduct.append("guide", guide);
+    newProduct.append("tour_image_carousel", images);
+    createProduct(newProduct, navigate);
+  }
 
   return (
     <div>
