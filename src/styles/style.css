@@ -1,0 +1,40 @@
+.card {
+  margin: 0.7rem;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  color: rgb(19, 20, 20);
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 200px;
+  object-fit: cover;
+}
+.grid {
+  color: black;
+  /* width: 30%; */
+  margin-left: 10%;
+  font-size: 18px;
+  line-height: 1.5em;
+  border: none;
+  /* background-color: lightgrey; */
+}
+.grid-2 {
+  color: black;
+  /* width: 30%; */
+  margin-left: 20%;
+  font-size: 18px;
+  line-height: 1.5em;
+  border: none;
+  /* background-color: lightgrey; */
+}
+
+.img-2 {
+  /* position: absolute; */
+  /* top: 0%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
+}

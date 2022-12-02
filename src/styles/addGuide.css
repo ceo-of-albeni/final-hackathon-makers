@@ -1,0 +1,89 @@
+.container-2 {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-image: url(https://bulak.kg/wp-content/uploads/2022/11/Karakol-in-Kyrgyzstan-in-winter-1.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+.form-container-2 {
+  transform: translate(-39%, 30%);
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+  width: 32%;
+  height: 400px;
+  margin-left: 45%;
+  padding: 20px;
+  box-shadow: 7px, 7px 60px #000;
+  border-radius: 10px;
+}
+/* button  */
+@import url("https://fonts.googleapis.com/css?family=Lato:100&display=swap");
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: " Open Sans";
+}
+
+.container {
+  width: 40%;
+  height: 40%;
+  position: relative;
+  left: 50%;
+  top: -1%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.center {
+  width: 180px;
+  height: 60px;
+  position: absolute;
+}
+
+.btn {
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #91c9ff;
+  outline: none;
+  transition: 1s ease-in-out;
+}
+
+svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #fff;
+  /* stroke: black; */
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}
+
+.btn:hover {
+  /* color: rgb(241, 19, 19); */
+  transition: 1s ease-in-out;
+  background: cornflowerblue;
+  color: black;
+}
+
+.btn:hover svg {
+  stroke-dashoffset: -480;
+}
+.btn span:hover {
+  color: black;
+}
+
+.btn span {
+  color: white;
+  font-size: 15px;
+  font-weight: 80;
+}
