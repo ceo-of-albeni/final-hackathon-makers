@@ -3,23 +3,19 @@ import { Routes, Route } from "react-router-dom";
 // product
 import HomePage from "./componentsAizat/HomePage/HomePage";
 import ProductList from "./componentsAizat/ProductList/ProductList";
-import DetailsForProduct from "./componentsAizat/DetailsForPoduct/DetailsForPorduct";
 import AddProduct from "./componentsAizat/AddProduct/AddProduct";
 import UpdateProduct from "./componentsAizat/UpdateProduct/UpdateProduct";
 import AddCategory from "./componentsAizat/AddCategory/AddCategory";
 import AddGuide from "./componentsAizat/AddGuide/AddGuide";
-import HomePage from "./pages/HomePage";
 //user
 import Login from "./pages/Login";
 import RegisterSuccess from "./pages/RegisterSuccess";
 import Registration from "./pages/Registration";
 import Details from "./components/Details/Details";
 
-
 const Routing = () => {
   const LIST_ROUTES = [
     {
-
       link: "/home-page",
       element: <HomePage />,
       id: 1,
@@ -40,11 +36,6 @@ const Routing = () => {
       id: 4,
     },
     {
-      link: "/datails-for-product",
-      element: <DetailsForProduct />,
-      id: 5,
-    },
-    {
       link: "/add=-category",
       element: <AddCategory />,
       id: 6,
@@ -53,35 +44,36 @@ const Routing = () => {
       link: "/add-guide",
       element: <AddGuide />,
       id: 7,
-      },
-     {
+    },
+    {
       link: "/register",
-      elemenet: <Registration />,
+      element: <Registration />,
       id: 8,
     },
     {
       link: "/login",
-      elemenet: <Login />,
+      element: <Login />,
       id: 9,
     },
     {
       link: "/register-success",
-      elemenet: <RegisterSuccess />,
+      element: <RegisterSuccess />,
       id: 10,
     },
 
     {
-      link: "/products/:id",
-      elemenet: <Details />,
+      link: "/details",
+      element: <Details />,
       id: 11,
     },
   ];
-  
+
   return (
     <Routes>
-      {LIST_ROUTES.map(item => (
-        <Route path={item.link} element={item.element} key={item.id} />
-      ))}
+      {LIST_ROUTES.map(item => {
+        // console.log(item);
+        return <Route path={item.link} element={item.element} key={item.id} />;
+      })}
     </Routes>
   );
 };

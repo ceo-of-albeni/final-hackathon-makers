@@ -1,3 +1,4 @@
+import { Input, Space, DatePicker } from "antd";
 import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { productsContexts } from "../../contexts/ProductContexts";
@@ -11,13 +12,13 @@ const UpdateProduct = () => {
     categories,
   } = useContext(productsContexts);
 
-  const { id } = useParams();
+  const { id: slug } = useParams();
   const navigate = useNavigate();
 
   const [title, setTitle] = useState("");
   const [place, setPlace] = useState("");
   const [desc, setDesc] = useState("");
-  const [numberOfDays, setNumber] = useState("");
+  const [numberOfDays, setNumberOfDays] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
   const [date, setDate] = useState("");
@@ -35,7 +36,7 @@ const UpdateProduct = () => {
       setTitle(oneProduct.title);
       setPlace(oneProduct.setPlace);
       setDesc(oneProduct.desc);
-      setNumber(oneProduct.numberOfdays);
+      setNumberOfDays(oneProduct.numberOfdays);
       setCategory(oneProduct.category);
       setPrice(oneProduct.price);
       setDate(oneProduct.date);
