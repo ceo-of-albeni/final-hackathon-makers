@@ -8,9 +8,9 @@ import { DatePicker, Space } from "antd";
 //!import for code
 import { productsContexts } from "../../contexts/ProductContexts";
 
-const onChange = (date, dateString) => {
-  console.log(date, dateString);
-};
+// const onChange = (date, dateString) => {
+//   console.log(date, dateString);
+// };
 
 const AddProduct = () => {
   const navigate = useNavigate();
@@ -230,8 +230,15 @@ const AddProduct = () => {
                 marginLeft: "20% ",
                 marginTop: "20px",
                 fontSize: "18px",
-              }}>
+              }}
+              value={category}
+              onChange={e => setCategory(e.target.value)}>
               <option>Choose category...</option>
+              {categories?.map(item => (
+                <option key={item.id} value={item.id}>
+                  {item.title}
+                </option>
+              ))}
             </select>
             <br />
 

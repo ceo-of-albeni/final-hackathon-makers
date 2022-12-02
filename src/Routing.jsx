@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+
 // product
 import HomePage from "./componentsAizat/HomePage/HomePage";
 import ProductList from "./componentsAizat/ProductList/ProductList";
@@ -7,11 +8,13 @@ import AddProduct from "./componentsAizat/AddProduct/AddProduct";
 import UpdateProduct from "./componentsAizat/UpdateProduct/UpdateProduct";
 import AddCategory from "./componentsAizat/AddCategory/AddCategory";
 import AddGuide from "./componentsAizat/AddGuide/AddGuide";
+
 //user
 import Login from "./pages/Login";
 import RegisterSuccess from "./pages/RegisterSuccess";
 import Registration from "./pages/Registration";
 import Details from "./components/Details/Details";
+
 
 const Routing = () => {
   const LIST_ROUTES = [
@@ -36,37 +39,38 @@ const Routing = () => {
       id: 4,
     },
     {
-      link: "/add=-category",
+      link: "/add-category",
       element: <AddCategory />,
-      id: 6,
+      id: 5,
     },
     {
       link: "/add-guide",
       element: <AddGuide />,
-      id: 7,
-    },
+      id: 6,
+  },
     {
       link: "/register",
       element: <Registration />,
-      id: 8,
+      id: 7,
     },
     {
       link: "/login",
       element: <Login />,
-      id: 9,
+      id: 8,
     },
     {
       link: "/register-success",
       element: <RegisterSuccess />,
-      id: 10,
+      id: 9,
     },
 
     {
       link: "/details",
       element: <Details />,
-      id: 11,
+      id: 10,
     },
   ];
+
 
   return (
     <Routes>
