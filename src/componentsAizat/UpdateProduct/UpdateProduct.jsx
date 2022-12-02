@@ -17,7 +17,7 @@ const UpdateProduct = () => {
   const [title, setTitle] = useState("");
   const [place, setPlace] = useState("");
   const [desc, setDesc] = useState("");
-  const [numberOfDays, setNumber] = useState("");
+  const [numberOfDays, setNumberOfDays] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
   const [date, setDate] = useState("");
