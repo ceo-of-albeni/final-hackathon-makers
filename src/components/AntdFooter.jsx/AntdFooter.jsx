@@ -9,8 +9,8 @@ const AntdFooter = () => {
       style={{
         textAlign: "center",
         backgroundColor: "lightgrey",
-        position: "fixed",
-        bottom: 0,
+        // position: "fixed",
+        // bottom: 0,
         width: "100%",
         padding: "10px",
       }}>

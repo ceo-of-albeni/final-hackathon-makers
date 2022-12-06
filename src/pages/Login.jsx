@@ -2,11 +2,11 @@ import React, { useState, useContext, useEffect } from "react";
 import { Button, Form, Input } from "antd";
 import "../styles/register.css";
 import Loader from "../components/Loader/Loader";
-import { authContext } from "../context/authContext";
+import { authContext } from "../contexts/authContext";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { handleLogin, error, setError, loading } = useContext(authContext);
+  const { handleLogin, setError, loading } = useContext(authContext);
 
   const navigate = useNavigate();
   const [username, setUsername] = useState("");

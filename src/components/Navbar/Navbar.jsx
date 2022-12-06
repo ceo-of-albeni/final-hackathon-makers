@@ -1,28 +1,70 @@
 import React from "react";
 import { Button, Layout, Menu } from "antd";
 import { useNavigate } from "react-router-dom";
+import { DownOutlined } from "@ant-design/icons";
+import { Dropdown, Space } from "antd";
 
 const Nav = () => {
   const { Header } = Layout;
+  const itemssss = [
+    {
+      label: <a href="https://www.antgroup.com">Tours</a>,
+      key: "0",
+    },
+    {
+      label: <a href="https://www.aliyun.com">Guides</a>,
+      key: "1",
+    },
+  ];
 
   const items = [
     {
       label: (
         <img
+          onClick={() => navigate("/")}
           width="40"
-          src="https://img.freepik.com/free-vector/detailed-travel-logo_23-2148616611.jpg?w=2000"
+          style={{
+            marginTop: "10px",
+          }}
+          src="https://www.pngkey.com/png/full/37-379897_logo-travel-logo-png-free.png"
         />
       ),
       key: "logo",
     },
     {
-      label: "Tours",
-      key: "tour",
+      label: (
+        <Dropdown
+          menu={{
+            itemssss,
+          }}
+          trigger={["click"]}>
+          <a onClick={e => e.preventDefault()}>
+            <Space>
+              Add
+              <i className="fa-sharp fa-solid fa-caret-down"></i>
+            </Space>
+          </a>
+        </Dropdown>
+      ),
     },
     {
       label: (
-        <a target="_blank" rel="noopener noreferrer">
-          About Us
+        <a
+          onClick={() => navigate("/products")}
+          target="_blank"
+          rel="noopener noreferrer">
+          Tours
+        </a>
+      ),
+      key: "home",
+    },
+    {
+      label: (
+        <a
+          onClick={() => navigate("/add-product")}
+          target="_blank"
+          rel="noopener noreferrer">
+          Add
         </a>
       ),
       key: "about",
@@ -30,22 +72,14 @@ const Nav = () => {
     {
       label: (
         <a
-          onClick={() => navigate("/home-page")}
+          onClick={() => navigate("/profile")}
           target="_blank"
           rel="noopener noreferrer">
-          Home
+          Profile
         </a>
       ),
-      key: "home",
+      key: "profile",
     },
-    // {
-    //   label: (
-    //     <Button type="primary" onClick={() => navigate("/login")}>
-    //       Log In
-    //     </Button>
-    //   ),
-    //   key: "button",
-    // },
   ];
 
   const navigate = useNavigate();

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+// import { useNavigate } from "react-router-dom";
 
 export const authContext = React.createContext();
 
@@ -9,6 +10,8 @@ const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  // const navigate = useNavigate();
 
   async function handleRegister(formData, navigate) {
     setLoading(true);
@@ -75,6 +78,34 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
+  async function handleBusiness(formData, navigate) {
+    setLoading(true);
+    try {
+      const res = await axios.post(`${API}/business/`, formData);
+      console.log(res);
+      navigate("/profile");
+    } catch (err) {
+      console.log(err);
+      setError(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function handleUser(formData, navigate) {
+    setLoading(true);
+    try {
+      const res = await axios.post(`${API}/user-profile/`, formData);
+      console.log(res);
+      navigate("/profile");
+    } catch (err) {
+      console.log(err);
+      setError(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   function handleLogout() {
     localStorage.removeItem("tokens");
     localStorage.removeItem("username");
@@ -90,8 +121,10 @@ const AuthContextProvider = ({ children }) => {
         handleRegister,
         setError,
         handleLogin,
+        handleBusiness,
         checkAuth,
         handleLogout,
+        handleUser,
       }}>
       {children}
     </authContext.Provider>

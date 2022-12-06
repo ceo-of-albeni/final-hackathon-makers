@@ -1,13 +1,13 @@
 .container-2 {
   position: relative;
-  height: 100vh;
+  height: 80vh;
   width: 100%;
   background-image: url(https://bulak.kg/wp-content/uploads/2022/11/Karakol-in-Kyrgyzstan-in-winter-1.jpg);
   background-size: cover;
   background-position: center center;
 }
 .form-container-2 {
-  transform: translate(-39%, 30%);
+  transform: translate(-39%, 20%);
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
   width: 32%;
   height: 400px;

@@ -2,23 +2,24 @@ import AntdFooter from "./components/AntdFooter.jsx/AntdFooter";
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Routing from "./Routing";
-import AuthContextProvider from "./context/authContext";
-import GuideContextsProvider from "./contexts/GuideContexts";
+import AuthContextProvider from "./contexts/authContext";
 import { BrowserRouter } from "react-router-dom";
-// import ProductContextsProvider from "./contexts/ProductContexts";
+import ProductsContextProvider from "./contexts/ProductContexts";
+import GuideContextsProvider from "./contexts/GuideContexts";
+
 const App = () => {
   return (
-    <BrowserRouter>
-      {/* <ProductContextsProvider> */}
+    <ProductsContextProvider>
       <GuideContextsProvider>
         <AuthContextProvider>
-          <Navbar />
-          <Routing />
-          {/* <AntdFooter /> */}
+          <BrowserRouter>
+            <Navbar />
+            <Routing />
+            <AntdFooter />
+          </BrowserRouter>
         </AuthContextProvider>
       </GuideContextsProvider>
-      {/* </ProductContextsProvider> */}
-    </BrowserRouter>
+    </ProductsContextProvider>
   );
 };
 

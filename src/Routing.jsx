@@ -3,18 +3,19 @@ import { Routes, Route } from "react-router-dom";
 
 // product
 import HomePage from "./componentsAizat/HomePage/HomePage";
-// import ProductList from "./componentsAizat/ProductList/ProductList";
-// import AddProduct from "./componentsAizat/AddProduct/AddProduct";
-// import UpdateProduct from "./componentsAizat/UpdateProduct/UpdateProduct";
-// import AddCategory from "./componentsAizat/AddCategory/AddCategory";
-
+import ProductList from "./componentsAizat/ProductList/ProductList";
+import AddProduct from "./componentsAizat/AddProduct/AddProduct";
+import UpdateProduct from "./componentsAizat/UpdateProduct/UpdateProduct";
+import AddProduct2 from "./componentsAizat/AddProduct/AddProduct2";
+import Details from "./components/Details/Details";
 //user
 import Login from "./pages/Login";
 import RegisterSuccess from "./pages/RegisterSuccess";
 import Registration from "./pages/Registration";
-import Details from "./components/Details/Details";
-
-//guide
+import ProfilePage from "./pages/ProfilePage";
+import RegisterBusiness from "./pages/RegisterBusiness";
+import RegisterUser from "./pages/RegisterUser";
+// guide
 import AddGuide from "./componentsGuide/AddGuide/AddGuide";
 import GuidesList from "./componentsGuide/GuidesList/GuidesList";
 import GuideDetails from "./componentsGuide/GuideDetails/GuideDetails";
@@ -26,26 +27,21 @@ const Routing = () => {
       element: <HomePage />,
       id: 1,
     },
-    // {
-    //   link: "/products",
-    //   element: <ProductList />,
-    //   id: 2,
-    // },
-    // {
-    //   link: "/add-product",
-    //   element: <AddProduct />,
-    //   id: 3,
-    // },
-    // {
-    //   link: "/update-product",
-    //   element: <UpdateProduct />,
-    //   id: 4,
-    // },
-    // {
-    //   link: "/add-category",
-    //   element: <AddCategory />,
-    //   id: 5,
-    // },
+    {
+      link: "/products",
+      element: <ProductList />,
+      id: 2,
+    },
+    {
+      link: "/add-product",
+      element: <AddProduct />,
+      id: 3,
+    },
+    {
+      link: "/update-product",
+      element: <UpdateProduct />,
+      id: 4,
+    },
     {
       link: "/register",
       element: <Registration />,
@@ -67,27 +63,47 @@ const Routing = () => {
       id: 10,
     },
     //!-------Guide-------
+
+    {
+      link: "/profile",
+      element: <ProfilePage />,
+      id: 12,
+    },
+    {
+      link: "/add-product2",
+      element: <AddProduct2 />,
+      id: 13,
+    },
+    {
+      link: "/register-user",
+      element: <RegisterUser />,
+      id: 14,
+    },
     {
       link: "/guides",
       element: <GuidesList />,
-      id: 11,
+      id: 15,
     },
     {
       link: "/guides-details",
       element: <GuideDetails />,
-      id: 12,
+      id: 16,
     },
     {
       link: "/add-guide",
       element: <AddGuide />,
-      id: 13,
+      id: 17,
+    },
+    {
+      link: "/register-business",
+      element: <RegisterBusiness />,
+      id: 18,
     },
   ];
 
   return (
     <Routes>
       {LIST_ROUTES.map(item => {
-        // console.log(item);
         return <Route path={item.link} element={item.element} key={item.id} />;
       })}
     </Routes>
