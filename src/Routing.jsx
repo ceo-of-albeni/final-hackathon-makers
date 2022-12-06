@@ -14,6 +14,10 @@ import Registration from "./pages/Registration";
 import ProfilePage from "./pages/ProfilePage";
 import RegisterBusiness from "./pages/RegisterBusiness";
 import RegisterUser from "./pages/RegisterUser";
+// guide
+import AddGuide from "./componentsGuide/AddGuide/AddGuide";
+import GuidesList from "./componentsGuide/GuidesList/GuidesList";
+import GuideDetails from "./componentsGuide/GuideDetails/GuideDetails";
 
 const Routing = () => {
   const LIST_ROUTES = [
@@ -77,6 +81,21 @@ const Routing = () => {
       link: "/register-user",
       element: <RegisterUser />,
       id: 14,
+    },
+    {
+      link: "/guides",
+      element: <GuidesList />,
+      id: 15,
+    },
+    {
+      link: "/guides-details",
+      element: <GuideDetails />,
+      id: 16,
+    },
+    {
+      link: "/add-guide",
+      element: <AddGuide />,
+      id: 17,
     },
   ];
 
