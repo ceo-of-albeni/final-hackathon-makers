@@ -6,7 +6,7 @@ export const productsContexts = React.createContext();
 const INIT_STATE = {
   products: [],
   pages: 0,
-  categories: [],
+  // level: [],
   oneProduct: null,
 };
 
@@ -18,41 +18,71 @@ function reducer(state = INIT_STATE, action) {
         products: action.payload.results,
         pages: Math.ceil(action.payload.count / 4),
       };
-    case "GET_CATEGORIES":
-      return {
-        ...state,
-        categories: action.payload,
-      };
+    // case "GET_LEVELS":
+    //   return {...state, level: action.payload,
+    //   };
     case "GET_ONE_PRODUCT":
-      return {
-        ...state,
-        oneProduct: action.payload,
-      };
+      return { ...state, oneProduct: action.payload };
     default:
       return state;
   }
 }
 
-const API = "44.206.228.104/api/";
+const API = "http://34.226.150.68/api/";
+
 const ProductsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
-  async function getCategories() {
+  // async function getLevels() {
+  //   try {
+  //     const tokens = JSON.parse(localStorage.getItem("tokens"));
+  //     const Authorization = `Bearer ${tokens.access}`;
+  //     const config = {
+  //       headers: {
+  //         Authorization,
+  //       },
+  //     };
+  //     const res = await axios(`${API}tour/`, config);
+  //     dispatch({
+  //       type: "GET_LEVELS",
+  //       payload: res.data.results,
+  //     });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
+
+  async function createProduct(newProduct, navigate) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const res = await axios.post(`${API}tour/`);
-      dispatch({
-        type: "GET_CATEGORIES",
-        payload: res.data.results,
-      });
+      const Authorization = `Bearer ${tokens.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.post(`${API}travel/tour/`, newProduct, config);
+      navigate("/products");
     } catch (err) {
       console.log(err);
     }
   }
-  async function createProduct(newProduct, navigate) {
+
+  async function createProduct2(newProduct, navigate) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const res = await axios.post(`${API}`, newProduct);
+      const Authorization = `Bearer ${tokens.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.post(
+        `${API}travel/concrete-tour/`,
+        newProduct,
+        config
+      );
+      navigate("/products");
     } catch (err) {
       console.log(err);
     }
@@ -61,7 +91,17 @@ const ProductsContextProvider = ({ children }) => {
   async function getProducts() {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const res = await axios(`${API} ${window.location.search}`);
+      const Authorization = `Bearer ${tokens.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      // const res = await axios(`${API} ${window.location.search}`);
+      const res = await axios(
+        `${API}products/${window.location.search}`,
+        config
+      );
       dispatch({
         type: "GET_PRODUCTS",
         payload: res.data,
@@ -72,21 +112,33 @@ const ProductsContextProvider = ({ children }) => {
     }
   }
 
-  async function createCategory(category) {
+  // async function createLevel(level) {
+  //   try {
+  //     const tokens = JSON.parse(localStorage.getItem("tokens"));
+  //     const Authorization = `Bearer ${tokens.access}`;
+  //     const config = {
+  //       headers: {
+  //         Authorization,
+  //       },
+  //     };
+  //     const res = await axios.post(`${API}`);
+
+  //     getLevels();
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
+
+  async function getOneProduct(id) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const res = await axios.post(`${API}`);
-
-      getCategories();
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  async function getOneProduct(slug) {
-    try {
-      const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const res = await axios(`${API}tour/${slug}`);
+      const Authorization = `Bearer ${tokens.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios(`${API}tour/${id}`, config);
       dispatch({
         type: "GET_ONE_PRODUCT",
         payload: res.data,
@@ -95,6 +147,7 @@ const ProductsContextProvider = ({ children }) => {
       console.log(err);
     }
   }
+
   async function updateProduct(id, editedProduct, navigate) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
@@ -106,26 +159,27 @@ const ProductsContextProvider = ({ children }) => {
     }
   }
 
-  async function deleteProduct(slug) {
+  async function deleteProduct(id) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const res = await axios.delete(`${API}tour/${slug}/`);
+      const res = await axios.delete(`${API}tour/${id}/`);
       getProducts();
     } catch (err) {
       console.log(err);
     }
   }
 
-  async function toggleLike(slug) {
+  async function toggleLike(id) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const res = await axios(`${API}tour/${slug}`);
+      const res = await axios(`${API}tour/${id}`);
       getProducts();
     } catch (err) {
       console.log(err);
     }
   }
-  async function createComment(slug, content) {
+
+  async function createComment(id, content) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const res = await axios.post(`${API}`, content);
@@ -134,6 +188,7 @@ const ProductsContextProvider = ({ children }) => {
       console.log(err);
     }
   }
+
   async function deleteComment(productId, commentId) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
@@ -148,14 +203,15 @@ const ProductsContextProvider = ({ children }) => {
     <productsContexts.Provider
       value={{
         products: state.products,
-        categories: state.categories,
+        // levels: state.levels,
 
-        getCategories,
-        createCategory,
+        // getLevels,
+        // createLevel,
         getProducts,
         createProduct,
         getOneProduct,
         updateProduct,
+        createProduct2,
         deleteProduct,
         toggleLike,
         createComment,

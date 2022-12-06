@@ -5,13 +5,15 @@ import HomePage from "./componentsAizat/HomePage/HomePage";
 import ProductList from "./componentsAizat/ProductList/ProductList";
 import AddProduct from "./componentsAizat/AddProduct/AddProduct";
 import UpdateProduct from "./componentsAizat/UpdateProduct/UpdateProduct";
-import AddCategory from "./componentsAizat/AddCategory/AddCategory";
-import AddGuide from "./componentsAizat/AddGuide/AddGuide";
+import AddProduct2 from "./componentsAizat/AddProduct/AddProduct2";
+import Details from "./components/Details/Details";
 //user
 import Login from "./pages/Login";
 import RegisterSuccess from "./pages/RegisterSuccess";
 import Registration from "./pages/Registration";
-import Details from "./components/Details/Details";
+import ProfilePage from "./pages/ProfilePage";
+import RegisterBusiness from "./pages/RegisterBusiness";
+import RegisterUser from "./pages/RegisterUser";
 
 const Routing = () => {
   const LIST_ROUTES = [
@@ -36,16 +38,6 @@ const Routing = () => {
       id: 4,
     },
     {
-      link: "/add=-category",
-      element: <AddCategory />,
-      id: 6,
-    },
-    {
-      link: "/add-guide",
-      element: <AddGuide />,
-      id: 7,
-    },
-    {
       link: "/register",
       element: <Registration />,
       id: 8,
@@ -65,6 +57,26 @@ const Routing = () => {
       link: "/details",
       element: <Details />,
       id: 11,
+    },
+    {
+      link: "/profile",
+      element: <ProfilePage />,
+      id: 12,
+    },
+    {
+      link: "/register-business",
+      element: <RegisterBusiness />,
+      id: 12,
+    },
+    {
+      link: "/add-product2",
+      element: <AddProduct2 />,
+      id: 13,
+    },
+    {
+      link: "/register-user",
+      element: <RegisterUser />,
+      id: 14,
     },
   ];
 

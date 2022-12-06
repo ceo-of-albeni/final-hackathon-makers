@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
+// import { useNavigate } from "react-router-dom";
 
 export const authContext = React.createContext();
 
-const API = "http://44.206.228.104/api";
+const API = "http://34.226.150.68/api";
 
 const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  // const navigate = useNavigate();
 
   async function handleRegister(formData, navigate) {
     setLoading(true);
@@ -32,7 +35,7 @@ const AuthContextProvider = ({ children }) => {
       localStorage.setItem("tokens", JSON.stringify(res.data));
       localStorage.setItem("username", username);
       setCurrentUser(username);
-      navigate("/");
+      navigate("/home-page");
     } catch (err) {
       console.log(err);
       setError(err);
@@ -75,10 +78,55 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
+  async function handleBusiness(formData, navigate) {
+    setLoading(true);
+    try {
+      const res = await axios.post(`${API}/business/`, formData);
+      console.log(res);
+      navigate("/profile");
+    } catch (err) {
+      console.log(err);
+      setError(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function handleUser(formData, navigate) {
+    setLoading(true);
+    try {
+      const res = await axios.post(`${API}/user-profile/`, formData);
+      console.log(res);
+      navigate("/profile");
+    } catch (err) {
+      console.log(err);
+      setError(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  // async function handleBusiness(newProduct, navigate) {
+  //   try {
+  //     const tokens = JSON.parse(localStorage.getItem("tokens"));
+  //     const Authorization = `Bearer ${tokens.access}`;
+  //     const config = {
+  //       headers: {
+  //         Authorization,
+  //       },
+  //     };
+  //     const res = await axios.post(`${API}/business/`, newProduct, config);
+  //     navigate("/profile");
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
+
   function handleLogout() {
     localStorage.removeItem("tokens");
     localStorage.removeItem("username");
     setCurrentUser(false);
+    // navigate("/home-page");
   }
 
   return (
@@ -90,8 +138,10 @@ const AuthContextProvider = ({ children }) => {
         handleRegister,
         setError,
         handleLogin,
+        handleBusiness,
         checkAuth,
         handleLogout,
+        handleUser,
       }}>
       {children}
     </authContext.Provider>

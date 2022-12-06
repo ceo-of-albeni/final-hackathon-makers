@@ -73,17 +73,17 @@ svg {
 /* container */
 section {
   position: relative;
-  height: 100vh;
+  height: 80vh;
   width: 100%;
   background-image: url(http://knews.kg/wp-content/uploads/2017/07/0ac2d4eed6fec79b14db41bafe186fbb-1024x512.jpg);
   background-size: cover;
   background-position: center center;
 }
 .form-container {
-  transform: translate(-39%, 2%);
+  transform: translate(-39%, 10%);
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
   width: 32%;
-  height: 690px;
+  height: 520px;
   margin-left: 45%;
   padding: 20px;
   box-shadow: 7px, 7px 60px #000;

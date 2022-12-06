@@ -186,7 +186,7 @@ const App = () => {
             />
           </div>
           <Card style={{ border: "none" }}>
-            <Card.Grid style={gridStyle} className="grid">
+            <Card.Grid style={gridStyle} name="grid">
               Салбуурун — комплексные охотничьи игры с ловчими птицами и
               собаками, проводящиеся в Киргизии. Включает соколиную охоту,
               стрельбу из лука (иногда конную стрельбу из лука), а также охоту с

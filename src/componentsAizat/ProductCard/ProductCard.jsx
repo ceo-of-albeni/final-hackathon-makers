@@ -65,10 +65,11 @@ const App = () => {
         <p style={{ marginLeft: "30%", fontSize: "20px" }}>Ала-Арча</p>
         <p style={{ marginTop: "-5px", marginLeft: "30%" }}>Price: 12 som</p>
         <p>
-          <button>delete</button>
+          <button>Delete</button>
           <button>Edit</button>
           <button>Like</button>
-          <button>favorite</button>
+          <button>Favorite</button>
+          <button>Details</button>
         </p>
       </div>
     </Card>

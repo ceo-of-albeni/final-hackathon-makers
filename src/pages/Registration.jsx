@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Button, Form, Input, Select } from "antd";
 import "../styles/register.css";
-import { authContext } from "../context/authContext";
+import { authContext } from "../contexts/authContext";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader/Loader";
 
@@ -163,24 +163,12 @@ const Registration = () => {
                 if (!value || getFieldValue("password") === value) {
                   return Promise.resolve();
                 }
-                return Promise.reject(
-                  new Error("The two passwords that you entered do not match!")
-                );
+                return Promise.reject(new Error("Do not match!"));
               },
             }),
           ]}>
           <Input.Password placeholder="Password confirmation" />
         </Form.Item>
-
-        {/* <Form.Item
-          name="remember"
-          valuePropName="checked"
-          wrapperCol={{
-            offset: 8,
-            span: 16,
-          }}>
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item> */}
 
         <Form.Item
           wrapperCol={{
