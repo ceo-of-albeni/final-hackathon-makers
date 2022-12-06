@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useContext, useeffect, useState } from "react";
 import { Input } from "antd";
 import "../../styles/addGuide.css";
 import { useNavigate } from "react-router-dom";
+//custom
+import { guidesContext } from "../../contexts/GuideContexts";
 
 const AddGuide = () => {
   const navigate = useNavigate();
+
+  const { createGuide } = useContext(guidesContext);
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [age, setAge] = useState("");
+  const [image, setImage] = useState(null);
+  console.log(image);
+  function saveGuide() {
+    let newGuide = new FormData();
+    newGuide.append("first_name", firstName);
+    newGuide.append("last_name", lastName);
+    newGuide.append("age", age);
+    newGuide.append("image", image);
+    createGuide(newGuide, navigate);
+    console.log(newGuide.get("image"));
+  }
+
   return (
     <div>
       <div className="container-2">
@@ -31,6 +51,8 @@ const AddGuide = () => {
             className="name-loc"
             type="text"
             placeholder="First name"
+            value={firstName}
+            onChange={e => setFirstName(e.target.value)}
           />
           <Input
             style={{
@@ -44,6 +66,8 @@ const AddGuide = () => {
             className="name-loc"
             type="text"
             placeholder="Last name"
+            value={lastName}
+            onChange={e => setLastName(e.target.value)}
           />
 
           <Input
@@ -58,6 +82,8 @@ const AddGuide = () => {
             className="name-loc"
             type="text"
             placeholder="Age"
+            value={age}
+            onChange={e => setAge(e.target.value)}
           />
           <Input
             style={{
@@ -71,10 +97,11 @@ const AddGuide = () => {
             size="small"
             type="file"
             accept="image/*"
+            onChange={e => setImage(e.target.files[0])}
           />
           <div className="container">
             <div className="center">
-              <button className="btn" onClick={() => navigate("/add-product")}>
+              <button className="btn" onClick={saveGuide}>
                 <svg
                   width="180px"
                   height="60px"
