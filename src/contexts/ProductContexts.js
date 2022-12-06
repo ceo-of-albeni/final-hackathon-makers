@@ -6,7 +6,6 @@ export const productsContexts = React.createContext();
 const INIT_STATE = {
   products: [],
   pages: 0,
-  // level: [],
   oneProduct: null,
 };
 
@@ -18,9 +17,6 @@ function reducer(state = INIT_STATE, action) {
         products: action.payload.results,
         pages: Math.ceil(action.payload.count / 4),
       };
-    // case "GET_LEVELS":
-    //   return {...state, level: action.payload,
-    //   };
     case "GET_ONE_PRODUCT":
       return { ...state, oneProduct: action.payload };
     default:
@@ -32,25 +28,6 @@ const API = "http://34.226.150.68/api/";
 
 const ProductsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
-
-  // async function getLevels() {
-  //   try {
-  //     const tokens = JSON.parse(localStorage.getItem("tokens"));
-  //     const Authorization = `Bearer ${tokens.access}`;
-  //     const config = {
-  //       headers: {
-  //         Authorization,
-  //       },
-  //     };
-  //     const res = await axios(`${API}tour/`, config);
-  //     dispatch({
-  //       type: "GET_LEVELS",
-  //       payload: res.data.results,
-  //     });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
 
   async function createProduct(newProduct, navigate) {
     try {
@@ -111,23 +88,6 @@ const ProductsContextProvider = ({ children }) => {
       console.log(err);
     }
   }
-
-  // async function createLevel(level) {
-  //   try {
-  //     const tokens = JSON.parse(localStorage.getItem("tokens"));
-  //     const Authorization = `Bearer ${tokens.access}`;
-  //     const config = {
-  //       headers: {
-  //         Authorization,
-  //       },
-  //     };
-  //     const res = await axios.post(`${API}`);
-
-  //     getLevels();
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
 
   async function getOneProduct(id) {
     try {
@@ -203,10 +163,7 @@ const ProductsContextProvider = ({ children }) => {
     <productsContexts.Provider
       value={{
         products: state.products,
-        // levels: state.levels,
 
-        // getLevels,
-        // createLevel,
         getProducts,
         createProduct,
         getOneProduct,

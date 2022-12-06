@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+
 // product
 import HomePage from "./componentsAizat/HomePage/HomePage";
 import ProductList from "./componentsAizat/ProductList/ProductList";
@@ -22,7 +23,7 @@ import GuideDetails from "./componentsGuide/GuideDetails/GuideDetails";
 const Routing = () => {
   const LIST_ROUTES = [
     {
-      link: "/home-page",
+      link: "/",
       element: <HomePage />,
       id: 1,
     },
@@ -44,32 +45,28 @@ const Routing = () => {
     {
       link: "/register",
       element: <Registration />,
-      id: 8,
+      id: 7,
     },
     {
       link: "/login",
       element: <Login />,
-      id: 9,
+      id: 8,
     },
     {
       link: "/register-success",
       element: <RegisterSuccess />,
-      id: 10,
+      id: 9,
     },
-
     {
       link: "/details",
       element: <Details />,
-      id: 11,
+      id: 10,
     },
+    //!-------Guide-------
+
     {
       link: "/profile",
       element: <ProfilePage />,
-      id: 12,
-    },
-    {
-      link: "/register-business",
-      element: <RegisterBusiness />,
       id: 12,
     },
     {
@@ -97,12 +94,16 @@ const Routing = () => {
       element: <AddGuide />,
       id: 17,
     },
+    {
+      link: "/register-business",
+      element: <RegisterBusiness />,
+      id: 18,
+    },
   ];
 
   return (
     <Routes>
       {LIST_ROUTES.map(item => {
-        // console.log(item);
         return <Route path={item.link} element={item.element} key={item.id} />;
       })}
     </Routes>

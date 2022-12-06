@@ -21,7 +21,7 @@ const Nav = () => {
     {
       label: (
         <img
-          onClick={() => navigate("/home-page")}
+          onClick={() => navigate("/")}
           width="40"
           style={{
             marginTop: "10px",
@@ -80,25 +80,6 @@ const Nav = () => {
       ),
       key: "profile",
     },
-    // {
-    //   label: (
-    //     <a
-    //       onClick={() => navigate("/home-page")}
-    //       target="_blank"
-    //       rel="noopener noreferrer">
-    //       Home
-    //     </a>
-    //   ),
-    //   key: "home",
-    // },
-    // {
-    //   label: (
-    //     <Button type="primary" onClick={() => navigate("/login")}>
-    //       Log In
-    //     </Button>
-    //   ),
-    //   key: "button",
-    // },
   ];
 
   const navigate = useNavigate();
