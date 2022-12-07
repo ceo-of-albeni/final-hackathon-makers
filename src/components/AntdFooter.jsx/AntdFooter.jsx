@@ -12,7 +12,7 @@ const AntdFooter = () => {
         // position: "fixed",
         // bottom: 0,
         width: "100%",
-        padding: "10px",
+        padding: "10px 0",
       }}>
       <p>©2022 All rights reserved</p>
 

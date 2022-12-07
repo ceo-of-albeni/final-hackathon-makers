@@ -8,6 +8,7 @@ import AddProduct from "./componentsAizat/AddProduct/AddProduct";
 import UpdateProduct from "./componentsAizat/UpdateProduct/UpdateProduct";
 import AddProduct2 from "./componentsAizat/AddProduct/AddProduct2";
 import Details from "./components/Details/Details";
+
 //user
 import Login from "./pages/Login";
 import RegisterSuccess from "./pages/RegisterSuccess";
@@ -19,6 +20,8 @@ import RegisterUser from "./pages/RegisterUser";
 import AddGuide from "./componentsGuide/AddGuide/AddGuide";
 import GuidesList from "./componentsGuide/GuidesList/GuidesList";
 import GuideDetails from "./componentsGuide/GuideDetails/GuideDetails";
+//favorite
+import Favorite from "./componentsAizat/Favorite/Favorite";
 
 const Routing = () => {
   const LIST_ROUTES = [
@@ -98,6 +101,11 @@ const Routing = () => {
       link: "/register-business",
       element: <RegisterBusiness />,
       id: 18,
+    },
+    {
+      link: "/favorite",
+      element: <Favorite />,
+      id: 19,
     },
   ];
 
