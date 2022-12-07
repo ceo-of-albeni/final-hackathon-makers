@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const authContext = React.createContext();
 
-const API = "http://34.226.150.68/api";
+const API = "http://35.78.172.218/api";
 
 const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(false);
@@ -81,7 +81,14 @@ const AuthContextProvider = ({ children }) => {
   async function handleBusiness(formData, navigate) {
     setLoading(true);
     try {
-      const res = await axios.post(`${API}/business/`, formData);
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.post(`${API}/business/`, formData, config);
       console.log(res);
       navigate("/profile");
     } catch (err) {
@@ -92,17 +99,19 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
-  async function handleUser(formData, navigate) {
-    setLoading(true);
+  async function handleUser(newProduct, navigate) {
     try {
-      const res = await axios.post(`${API}/user-profile/`, formData);
-      console.log(res);
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.post(`${API}/user-profile/`, newProduct, config);
       navigate("/profile");
     } catch (err) {
       console.log(err);
-      setError(err);
-    } finally {
-      setLoading(false);
     }
   }
 

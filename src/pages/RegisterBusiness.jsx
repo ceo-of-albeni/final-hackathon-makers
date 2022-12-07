@@ -75,8 +75,6 @@ const RegisterBusiness = () => {
 
         <Form.Item onChange={e => setPhone(e.target.value)} name="phone">
           <Input
-            // addonBefore={prefixSelector}
-
             style={{
               width: "100%",
             }}

@@ -39,40 +39,28 @@ const Details = () => {
           }}
           afterChange={onChange}>
           <div>
-            {/* <h3 style={contentStyle}> */}
             <img
-              // style={{ marginRight: "2%" }}
               src="https://kalpak-travel.com/wp-content/uploads/2021/02/issyk-kul.jpg"
               width="500"
             />
-            {/* </h3> */}
           </div>
           <div>
-            {/* <h3 style={contentStyle}> */}
             <img
-              // style={{ marginRight: "2%" }}
               src="https://kalpak-travel.com/wp-content/uploads/2021/02/issyk-kul.jpg"
               width="500"
             />
-            {/* </h3> */}
           </div>
           <div>
-            {/* <h3 style={contentStyle}> */}
             <img
-              // style={{ marginRight: "2%" }}
               src="https://kalpak-travel.com/wp-content/uploads/2021/02/issyk-kul.jpg"
               width="500"
             />
-            {/* </h3> */}
           </div>
           <div>
-            {/* <h3 style={contentStyle}> */}
             <img
-              // style={{ marginRight: "2%" }}
               src="https://kalpak-travel.com/wp-content/uploads/2021/02/issyk-kul.jpg"
               width="500"
             />
-            {/* </h3> */}
           </div>
         </Carousel>
       </div>

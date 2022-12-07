@@ -57,7 +57,7 @@ const Registration = () => {
 
   return (
     <div className="form">
-      <h1>Sign Up</h1>
+      <h1>Регистрация</h1>
       {/* {error ? <h2>{error}</h2> : null} */}
       <Form
         name="basic"
@@ -105,15 +105,6 @@ const Registration = () => {
           />
         </Form.Item>
 
-        {/* <Form.Item label="Select">
-          <Select
-            placeholder="Select province"
-            value={code_method}
-            onChange={e => setCodeMethod(e.target.value)}>
-            <Option value="email">E-mail</Option>
-            <Option value="phone">Phone</Option>
-          </Select>
-        </Form.Item> */}
         <select
           value={code_method}
           onChange={e => setCodeMethod(e.target.value)}>

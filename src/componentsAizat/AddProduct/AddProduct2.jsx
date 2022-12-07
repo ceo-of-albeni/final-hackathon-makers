@@ -26,71 +26,95 @@ const AddProduct2 = () => {
 
   return (
     <div>
-      <h2>Add Product</h2>
-      <Input
-        style={{
-          width: "60%",
-          height: "30px",
-          marginLeft: "20% ",
-          marginTop: "20px",
-          fontSize: "18px",
-        }}
-        size="small"
-        className="desc"
-        type="number"
-        placeholder="Price"
-        value={price}
-        onChange={e => setPrice(e.target.value)}
-      />
-      <br />
+      <section>
+        <div className="form-container">
+          <h2>Add Product</h2>
+          <Input
+            style={{
+              width: "60%",
+              height: "30px",
+              marginLeft: "20% ",
+              marginTop: "20px",
+              fontSize: "18px",
+            }}
+            size="small"
+            className="desc"
+            type="number"
+            placeholder="Price"
+            value={price}
+            onChange={e => setPrice(e.target.value)}
+          />
+          <br />
 
-      <Input
-        style={{
-          width: "60%",
-          height: "30px",
-          marginLeft: "20% ",
-          marginTop: "20px",
-          fontSize: "18px",
-        }}
-        size="small"
-        className="price"
-        type="number"
-        placeholder="People count"
-        value={peopleCount}
-        onChange={e => setPeopleCount(e.target.value)}
-      />
-      <br />
+          <Input
+            style={{
+              width: "60%",
+              height: "30px",
+              marginLeft: "20% ",
+              marginTop: "20px",
+              fontSize: "18px",
+            }}
+            size="small"
+            className="price"
+            type="number"
+            placeholder="People count"
+            value={peopleCount}
+            onChange={e => setPeopleCount(e.target.value)}
+          />
+          <br />
 
-      <Input
-        style={{
-          width: "60%",
-          height: "30px",
-          marginLeft: "20% ",
-          marginTop: "20px",
-          fontSize: "18px",
-        }}
-        size="small"
-        type="text"
-        placeholder="guide"
-        value={guide}
-        onChange={e => setGuide(e.target.value)}
-      />
-      <br />
+          <Input
+            style={{
+              width: "60%",
+              height: "30px",
+              marginLeft: "20% ",
+              marginTop: "20px",
+              fontSize: "18px",
+            }}
+            size="small"
+            type="text"
+            placeholder="guide"
+            value={guide}
+            onChange={e => setGuide(e.target.value)}
+          />
+          <br />
 
-      <Space direction="vertical">
-        <DatePicker
-          value={date}
-          onChange={e => setDate(e.target.value)}
-          style={{
-            width: "200%",
-            height: "30px",
-            marginLeft: "67% ",
-            marginTop: "20px",
-            fontSize: "20px",
-          }}
-        />
-      </Space>
-      <Button onClick={saveProduct}>Save</Button>
+          <Space direction="vertical">
+            <DatePicker
+              value={date}
+              onChange={e => setDate(e.target.value)}
+              style={{
+                width: "200%",
+                height: "30px",
+                marginLeft: "80% ",
+                marginTop: "20px",
+                fontSize: "20px",
+              }}
+            />
+          </Space>
+          <div className="container">
+            <div className="center">
+              <button className="btn" onClick={saveProduct}>
+                <svg
+                  width="180px"
+                  height="60px"
+                  viewBox="0 0 180 60"
+                  className="border">
+                  <polyline
+                    points="179,1 179,59 1,59 1,1 179,1"
+                    className="bg-line"
+                  />
+                  <polyline
+                    points="179,1 179,59 1,59 1,1 179,1"
+                    className="hl-line"
+                  />
+                </svg>
+                <span style={{ fontSize: "22px" }}>Сontinue</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

@@ -62,8 +62,6 @@ const Routing = () => {
       element: <Details />,
       id: 10,
     },
-    //!-------Guide-------
-
     {
       link: "/profile",
       element: <ProfilePage />,

@@ -27,7 +27,7 @@ function reducer(state = INIT_STATE, action) {
   }
 }
 
-const API2 = "http://34.226.150.68/api/";
+const API2 = "http://35.78.172.218/api/";
 const GuideContextsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 

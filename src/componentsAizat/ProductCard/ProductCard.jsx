@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
-import { Avatar, Card } from "antd";
+
+import { Card } from "antd";
 
 const { Meta } = Card;
 const App = () => {

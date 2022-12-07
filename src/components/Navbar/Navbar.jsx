@@ -1,21 +1,9 @@
 import React from "react";
 import { Button, Layout, Menu } from "antd";
 import { useNavigate } from "react-router-dom";
-import { DownOutlined } from "@ant-design/icons";
-import { Dropdown, Space } from "antd";
 
 const Nav = () => {
   const { Header } = Layout;
-  const itemssss = [
-    {
-      label: <a href="https://www.antgroup.com">Tours</a>,
-      key: "0",
-    },
-    {
-      label: <a href="https://www.aliyun.com">Guides</a>,
-      key: "1",
-    },
-  ];
 
   const items = [
     {
@@ -31,29 +19,14 @@ const Nav = () => {
       ),
       key: "logo",
     },
-    {
-      label: (
-        <Dropdown
-          menu={{
-            itemssss,
-          }}
-          trigger={["click"]}>
-          <a onClick={e => e.preventDefault()}>
-            <Space>
-              Add
-              <i className="fa-sharp fa-solid fa-caret-down"></i>
-            </Space>
-          </a>
-        </Dropdown>
-      ),
-    },
+
     {
       label: (
         <a
           onClick={() => navigate("/products")}
           target="_blank"
           rel="noopener noreferrer">
-          Tours
+          Туры
         </a>
       ),
       key: "home",
@@ -64,7 +37,7 @@ const Nav = () => {
           onClick={() => navigate("/add-product")}
           target="_blank"
           rel="noopener noreferrer">
-          Add
+          Добавить
         </a>
       ),
       key: "about",
@@ -72,10 +45,21 @@ const Nav = () => {
     {
       label: (
         <a
+          onClick={() => navigate("/add-guide")}
+          target="_blank"
+          rel="noopener noreferrer">
+          Добавить гидов
+        </a>
+      ),
+      key: "guide",
+    },
+    {
+      label: (
+        <a
           onClick={() => navigate("/profile")}
           target="_blank"
           rel="noopener noreferrer">
-          Profile
+          Профиль
         </a>
       ),
       key: "profile",
@@ -93,10 +77,6 @@ const Nav = () => {
           position: "sticky",
           top: 0,
           width: "100%",
-          // height: "65px",
-          // display: "flex",
-          // justifyContent: "space-between",
-          // alignItems: "center",
         }}>
         <div
           style={{
@@ -107,7 +87,7 @@ const Nav = () => {
             style={{
               backgroundColor: "cornflowerblue",
             }}
-            breakpoint="xs"
+            breakpoint="lg"
             mode="horizontal"
             defaultSelectedKeys={["2"]}
             items={items}
@@ -119,13 +99,9 @@ const Nav = () => {
             }}
             type="primary"
             onClick={() => navigate("/login")}>
-            Log In
+            Войти
           </Button>
         </div>
-
-        {/* <Button type="primary" onClick={() => navigate("/login")}>
-          Log In
-        </Button> */}
       </Header>
     </div>
   );

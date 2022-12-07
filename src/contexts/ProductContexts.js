@@ -24,12 +24,15 @@ function reducer(state = INIT_STATE, action) {
   }
 }
 
-const API = "http://34.226.150.68/api/";
+const API = "http://35.78.172.218/api/";
 
 const ProductsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
   async function createProduct(newProduct, navigate) {
+    for (const val of newProduct.values()) {
+      console.log(val);
+    }
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access}`;
@@ -74,7 +77,6 @@ const ProductsContextProvider = ({ children }) => {
           Authorization,
         },
       };
-      // const res = await axios(`${API} ${window.location.search}`);
       const res = await axios(
         `${API}products/${window.location.search}`,
         config
