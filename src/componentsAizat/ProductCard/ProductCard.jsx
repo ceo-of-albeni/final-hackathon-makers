@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+import { Card } from "antd";
 import { Badge, Card, Space } from "antd";
 
 const { Meta } = Card;

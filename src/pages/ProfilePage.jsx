@@ -13,6 +13,7 @@ const ProfilePage = () => {
         display: "flex",
         flexDirection: "column",
         margin: "4%",
+        height: "537px",
       }}>
       <div
         style={{

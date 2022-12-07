@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import { UserOutlined } from "@ant-design/icons";
-import { DatePicker, Space, Input } from "antd";
+import { Input } from "antd";
 import "../../styles/addProduct.css";
 // import for code
 import { productsContexts } from "../../contexts/ProductContexts";
@@ -12,23 +11,27 @@ const AddProduct = () => {
   const { createProduct } = useContext(productsContexts);
 
   const [title, setTitle] = useState("");
-  const [companyName, setCompanyName] = useState("");
+  const [company_name, setCompanyName] = useState("");
   const [place, setPlace] = useState("");
   const [desc, setDesc] = useState("");
-  const [images, setImages] = useState(null);
+  const [image, setImage] = useState(null);
   const [level, setLevel] = useState("");
-  const [numberOfDays, setNumberOfDays] = useState("");
+  const [number_of_days, setNumberOfDays] = useState("");
+  const [carousel, setCarousel] = useState(null);
 
-  const levels = ["Easy", "Meduim", "Hard"];
+  const levels = ["easy", "meduim", "hard"];
 
   function saveProduct() {
+    console.clear();
+    console.log(carousel);
     let newProduct = new FormData();
     newProduct.append("title", title);
-    newProduct.append("company_name", companyName);
+    newProduct.append("image", image);
+    newProduct.append("company_name", company_name);
     newProduct.append("place", place);
     newProduct.append("desc", desc);
-    newProduct.append("number_of_days", numberOfDays);
-    newProduct.append("tour_image_carousel", images);
+    newProduct.append("number_of_days", number_of_days);
+    newProduct.append("tour_image_carousel", carousel);
     newProduct.append("level", level);
     createProduct(newProduct, navigate);
   }
@@ -58,7 +61,7 @@ const AddProduct = () => {
             size="small"
             className="name-loc"
             type="text"
-            placeholder="Name Location"
+            placeholder="Title"
             value={title}
             onChange={e => setTitle(e.target.value)}
           />
@@ -109,7 +112,7 @@ const AddProduct = () => {
             className="desc"
             type="text"
             placeholder="Number of days"
-            value={numberOfDays}
+            value={number_of_days}
             onChange={e => setNumberOfDays(e.target.value)}
           />
           <br />
@@ -125,35 +128,36 @@ const AddProduct = () => {
             size="small"
             type="text"
             placeholder="Company name"
-            value={companyName}
+            value={company_name}
             onChange={e => setCompanyName(e.target.value)}
           />
           <br />
 
           <input
             type="file"
-            accept="image/*"
-            onChange={e => setImages(e.target.files[0])}
+            style={{
+              width: "60%",
+              height: "30px",
+              marginLeft: "20% ",
+              marginTop: "20px",
+              fontSize: "18px",
+            }}
+            onChange={e => setImage(e.target.files[0])}
           />
           <br />
 
-          {/* <label htmlFor="img">
-            <input
-              type="file"
-              id="img"
-              multiple
-              style={{
-                width: "60%",
-                height: "30px",
-                marginLeft: "20% ",
-                marginTop: "20px",
-                fontSize: "18px",
-              }}
-              // value={images}
-              onChange={e => setImages([...e.target.files])}
-            />
-          </label>
-          <br /> */}
+          <input
+            type="file"
+            style={{
+              width: "60%",
+              height: "30px",
+              marginLeft: "20% ",
+              marginTop: "20px",
+              fontSize: "18px",
+            }}
+            onChange={e => setCarousel(e.target.files[0])}
+          />
+          <br />
 
           <select
             value={level}
@@ -191,6 +195,9 @@ const AddProduct = () => {
                 </svg>
                 <span style={{ fontSize: "22px" }}>Сontinue</span>
               </button>
+              <a style={{ color: "white" }} href="/add-product2">
+                Заполнить
+              </a>
             </div>
           </div>
         </div>
