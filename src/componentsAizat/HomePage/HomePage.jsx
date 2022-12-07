@@ -69,14 +69,14 @@ const App = () => {
         </div>
       </Carousel>
       <div>
-        <h2 style={{ color: "black", marginLeft: "33%", marginTop: "100px" }}>
+        <h2 style={{ color: "black", marginLeft: "37%", marginTop: "100px" }}>
           Красивые места нашей страны
         </h2>
         <div
           style={{
             width: " 50%",
             fontSize: "19px",
-            marginLeft: "20%",
+            marginLeft: "25%",
             background: " lightgrey",
             padding: "10px",
           }}>
@@ -185,8 +185,8 @@ const App = () => {
               height="453px"
             />
           </div>
-          <Card style={{ border: "none" }}>
-            <Card.Grid style={gridStyle} name="grid">
+          <div className="first-grid">
+            <div className="grid">
               Салбуурун — комплексные охотничьи игры с ловчими птицами и
               собаками, проводящиеся в Киргизии. Включает соколиную охоту,
               стрельбу из лука (иногда конную стрельбу из лука), а также охоту с
@@ -199,15 +199,15 @@ const App = () => {
               с киргизского языка слово «салбуурун» расшифровывается как
               «изюминка охотника». Первые игры были проведены в 2006 году в
               Тонском районе. С тех пор они часто проводились на местах
-            </Card.Grid>
-          </Card>
+            </div>
+          </div>
         </div>
       </div>
       {/* // second */}
       <div style={{ marginTop: "100px" }}>
         <div style={{ display: "flex" }}>
-          <Card style={{ border: "none" }}>
-            <Card.Grid style={gridStyle} className="grid-2">
+          <div className="first-grid-2">
+            <div className="grid-2">
               Кок-бору, Кёк-бёрю, Кюк бюре, кокпар (кирг. көк-бөрү (дословно
               "синий/сизый волк" в значении русского выражения "серый волк"),
               улак-тартыш (борьба за козла) или улак (козел), алт. кöк-бöрӱ,
@@ -219,14 +219,14 @@ const App = () => {
               овладение тушей отбором её у соперника. Кок-бору — это симбиоз
               скачек и игры. Всадники борются за тушу козла — необходимоа затем
               забросить в «казан» (ворота) команды соперника.
-            </Card.Grid>
-          </Card>
-          <div style={{ marginRight: "15%" }}>
+            </div>
+          </div>
+          <div style={{ marginLeft: "17%" }}>
             <img
               src="http://worldnomadgames.com/media/images/news/GD3A1358.jpg"
               alt=""
-              width="530px"
-              height="453px"
+              width="83%"
+              height="450px"
             />
           </div>
         </div>
@@ -239,13 +239,24 @@ const App = () => {
               <img
                 src="http://p.phgk.ru/b/s/3506/27895.jpg"
                 alt="meditation"
-                width="630px"
+                width="560px"
                 height="453px"
               />
             </div>
           </div>
-          <Card style={{ border: "none" }}>
-            <Card.Grid style={gridStyle} className="grid">
+          <div className="first-grid">
+            <div
+              style={{
+                color: "black",
+                marginLeft: "44%",
+                fontSize: "19px",
+                lineHeight: " 1.5em",
+                border: "none",
+                width: "100%",
+                backgroundColor: " white",
+                padding: "15px",
+                height: "424px",
+              }}>
               Издревле конная игра «Кыз куумай» являлась неотъемлемой частью
               жизни кочевых народов. Если западные мужчины покоряли своих
               возлюбленных любовными серенадами и стихами, то наши джигиты
@@ -256,14 +267,10 @@ const App = () => {
               юноши. Жених должен был догнать невесту, этим он доказывал свою
               любовь к ней и закреплял право на женитьбу. Эта национальная
               традиционная игра часто проводится в праздничные дни.
-            </Card.Grid>
-          </Card>
+            </div>
+          </div>
         </div>
       </div>
-
-      <video
-        src="https://www.youtube.com/watch?v=cgZrQ6MJ0ng"
-        className="back-video"></video>
     </div>
   );
 };

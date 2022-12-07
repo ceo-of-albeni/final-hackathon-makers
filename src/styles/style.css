@@ -15,17 +15,31 @@
 }
 .grid {
   color: black;
-  margin-left: 10%;
-  font-size: 18px;
+  margin-left: 20%;
+  font-size: 19px;
   line-height: 1.5em;
   border: none;
   width: 100%;
+  background-color: white;
+  padding: 15px;
+  height: 420px;
 }
+.first-grid {
+  width: 35%;
+}
+
 .grid-2 {
   color: black;
-
-  margin-left: 20%;
-  font-size: 18px;
+  margin-left: 27%;
+  font-size: 19px;
   line-height: 1.5em;
   border: none;
+  width: 97%;
+  background-color: white;
+  padding: 15px;
+  height: 420px;
+}
+
+.first-grid-2 {
+  width: 35%;
 }

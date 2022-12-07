@@ -1,10 +1,12 @@
-import React from "react";
-import { Button, Layout, Menu } from "antd";
+import React, { useState } from "react";
+import { Button, Layout, Menu, Modal, Badge } from "antd";
 import { useNavigate } from "react-router-dom";
 import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, Space } from "antd";
+import Cart from "../Cart/Cart";
 
 const Nav = () => {
+  const [open, setOpen] = useState(false);
   const { Header } = Layout;
   const itemssss = [
     {
@@ -80,6 +82,35 @@ const Nav = () => {
       ),
       key: "profile",
     },
+    {
+      label: (
+        <Badge
+          count={5}
+          offset={[10, 10]}
+          style={{ color: "blue", background: "white" }}
+          size="small">
+          <i
+            className="fa-sharp fa-solid fa-cart-plus fa-xl"
+            onClick={() => setOpen(true)}
+            style={{
+              marginTop: "20px",
+              color: "white",
+
+              // marginLeft: "1000px",
+            }}></i>
+        </Badge>
+      ),
+      key: "modal",
+    },
+    {
+      label: (
+        <i
+          className="fa-regular fa-star fa-xl"
+          style={{ color: "white" }}
+          onClick={e => navigate("/favorite")}></i>
+      ),
+      key: "Favorite",
+    },
   ];
 
   const navigate = useNavigate();
@@ -112,6 +143,17 @@ const Nav = () => {
             defaultSelectedKeys={["2"]}
             items={items}
           />
+
+          <Modal
+            title="Cart for Tour"
+            centered
+            open={open}
+            onOk={() => setOpen(false)}
+            onCancel={() => setOpen(false)}
+            width={1000}>
+            <Cart />
+          </Modal>
+
           <Button
             style={{
               marginTop: "10px",
