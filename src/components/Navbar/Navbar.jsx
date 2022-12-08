@@ -36,6 +36,17 @@ const Nav = () => {
     {
       label: (
         <a
+          onClick={() => navigate("/guides")}
+          target="_blank"
+          rel="noopener noreferrer">
+          Гиды
+        </a>
+      ),
+      key: "home",
+    },
+    {
+      label: (
+        <a
           onClick={() => navigate("/add-product")}
           target="_blank"
           rel="noopener noreferrer">

@@ -4,7 +4,7 @@ import { Button } from "antd";
 
 const columns = [
   {
-    title: "Image",
+    title: "name of business company",
     dataIndex: "name",
     key: "name",
     render: text => <a>{text}</a>,
@@ -44,7 +44,7 @@ const columns = [
     key: "action",
     render: (_, record) => (
       <Space size="middle">
-        <a>Invite {record.name}</a>
+        <a> {record.name}</a>
         <Button type="primary">Delete</Button>
       </Space>
     ),
@@ -53,30 +53,30 @@ const columns = [
 const data = [
   {
     key: "1",
-    name: "John Brown",
+    name: "700",
     age: 32,
-    address: "New York No. 1 Lake Park",
+    address: "Ала-Арча",
     tags: ["12"],
   },
   {
     key: "2",
-    name: "Jim Green",
+    name: "1200",
     age: 42,
-    address: "London No. 1 Lake Park",
+    address: "КЕЛЬ-СУУ",
     tags: ["12"],
   },
   {
     key: "3",
-    name: "Joe Black",
+    name: "500",
     age: 32,
-    address: "Sidney No. 1 Lake Park",
+    address: "Манас-ордо",
     tags: ["12"],
   },
   {
     key: "3",
-    name: "Joe Black",
+    name: "455",
     age: 32,
-    address: "Sidney No. 1 Lake Park",
+    address: "Нарын",
     tags: ["12"],
   },
 ];

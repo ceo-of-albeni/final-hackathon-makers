@@ -44,40 +44,6 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
-  async function checkAuth() {
-    console.log("Check Auth Worked!");
-    setLoading(true);
-    try {
-      const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios.post(
-        `${API}/account/token/refresh/`,
-        { refresh: tokens.refresh },
-        config
-      );
-      localStorage.setItem(
-        "tokens",
-        JSON.stringify({
-          access: res.data.access,
-          refresh: tokens.refresh,
-        })
-      );
-      const username = localStorage.getItem("username");
-      setCurrentUser(username);
-      console.log(res);
-    } catch (err) {
-      console.log(err);
-      handleLogout();
-    } finally {
-      setLoading(false);
-    }
-  }
-
   async function handleBusiness(formData, navigate) {
     setLoading(true);
     try {
@@ -131,7 +97,7 @@ const AuthContextProvider = ({ children }) => {
         setError,
         handleLogin,
         handleBusiness,
-        checkAuth,
+
         handleLogout,
         handleUser,
       }}>
