@@ -39,13 +39,12 @@ const GuidesList = () => {
   // };
   return (
     <div className="container-5">
-      <h1 style={{ color: "black", marginLeft: "40%" }}>Guides List</h1>
+      <h1 style={{ color: "blue", marginLeft: "40%" }}>Guides List</h1>
       <div className="guides-list">
         {guides?.map(item => (
           <CardGuide className="card-guide" key={item.slug} item={item} />
         ))}
       </div>
-      <ul></ul>
     </div>
   );
 };

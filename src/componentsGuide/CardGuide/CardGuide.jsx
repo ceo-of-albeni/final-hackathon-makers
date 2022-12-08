@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { guidesContext } from "../../contexts/GuideContexts";
 import { useNavigate } from "react-router-dom";
-
-import { Rate } from "antd";
 import { Card } from "antd";
 
 const CardGuide = ({ item }) => {
@@ -23,16 +21,21 @@ const CardGuide = ({ item }) => {
         }>
         {/* <img alt="error:(" src={item.image} width="220px" height="220px" /> */}
 
-        <p> Name:{item.first_name}</p>
-        <p>Last name:{item.last_name}</p>
-        <p>Age:{item.age}</p>
-        <button>Like</button>
-        {item.is_owner ? (
-          <>
-            <button style={{ color: "red" }}>Delete</button>
-            <button style={{ color: "red" }}>Edit</button>
-          </>
-        ) : null}
+        <p style={{ color: "blue", fontSize: "16px" }}>
+          {" "}
+          <b> Name:</b> {item.first_name}
+        </p>
+        <p style={{ color: "blue", fontSize: "16px" }}>
+          <b>Last name:</b> {item.last_name}
+        </p>
+        <p style={{ color: "blue", fontSize: "16px" }}>
+          {" "}
+          <b>Age:</b> {item.age}
+        </p>
+        {/* <button>Like</button> */}
+        {/* <button style={{ color: "red" }}>Delete</button>
+        <button style={{ color: "red" }}>Edit</button> */}
+        {item.is_author ? <></> : null}
       </Card>
     </>
   );

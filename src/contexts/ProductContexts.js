@@ -14,7 +14,7 @@ function reducer(state = INIT_STATE, action) {
     case "GET_PRODUCTS":
       return {
         ...state,
-        products: action.payload.results,
+        products: action.payload,
         pages: Math.ceil(action.payload.count / 4),
       };
     case "GET_ONE_PRODUCT":
@@ -24,7 +24,7 @@ function reducer(state = INIT_STATE, action) {
   }
 }
 
-const API = "http://35.78.172.218/api/";
+const API = "http://3.92.183.40/api/";
 
 const ProductsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
@@ -42,7 +42,7 @@ const ProductsContextProvider = ({ children }) => {
         },
       };
       const res = await axios.post(`${API}travel/tour/`, newProduct, config);
-      navigate("/products");
+      navigate("/add-product2");
     } catch (err) {
       console.log(err);
     }
@@ -57,11 +57,7 @@ const ProductsContextProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.post(
-        `${API}travel/concrete-tour/`,
-        newProduct,
-        config
-      );
+      const res = await axios.post(`${API}travel/tour/`, newProduct, config);
       navigate("/products");
     } catch (err) {
       console.log(err);
@@ -77,10 +73,7 @@ const ProductsContextProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios(
-        `${API}products/${window.location.search}`,
-        config
-      );
+      const res = await axios(`${API}travel/tour/`, config);
       dispatch({
         type: "GET_PRODUCTS",
         payload: res.data,
@@ -124,7 +117,7 @@ const ProductsContextProvider = ({ children }) => {
   async function deleteProduct(id) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const res = await axios.delete(`${API}tour/${id}/`);
+      const res = await axios.delete(`${API}travel/tour/${id}/`);
       getProducts();
     } catch (err) {
       console.log(err);
