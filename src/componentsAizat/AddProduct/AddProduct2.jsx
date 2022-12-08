@@ -28,7 +28,16 @@ const AddProduct2 = () => {
     <div>
       <section>
         <div className="form-container">
-          <h2>Add Product</h2>
+          <h2
+            style={{
+              color: "white",
+              marginLeft: "25% ",
+              fontSize: "29px",
+              textTransform: "uppercase",
+              marginTop: "7px",
+            }}>
+            Add Product
+          </h2>
           <Input
             style={{
               width: "60%",
@@ -78,20 +87,34 @@ const AddProduct2 = () => {
             onChange={e => setGuide(e.target.value)}
           />
           <br />
-
-          <Space direction="vertical">
+          <Input
+            style={{
+              width: "60%",
+              height: "30px",
+              marginLeft: "20% ",
+              marginTop: "20px",
+              fontSize: "18px",
+            }}
+            size="small"
+            type="number"
+            placeholder="Date-m-d"
+            value={date}
+            onChange={e => setDate(e.target.value)}
+          />
+          <br />
+          {/* <Space direction="vertical">
             <DatePicker
               value={date}
               onChange={e => setDate(e.target.value)}
               style={{
                 width: "200%",
                 height: "30px",
-                marginLeft: "80% ",
+                marginLeft: "68% ",
                 marginTop: "20px",
                 fontSize: "20px",
               }}
             />
-          </Space>
+          </Space> */}
           <div className="container">
             <div className="center">
               <button className="btn" onClick={saveProduct}>

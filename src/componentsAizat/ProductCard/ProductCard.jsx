@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { Card } from "antd";
-import { Badge, Card, Space } from "antd";
+import { Badge, Space } from "antd";
+import { productsContexts } from "../../contexts/ProductContexts";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const { Meta } = Card;
-const App = () => {
+const ProductCard = ({ item }) => {
+  const navigate = useNavigate();
+
   const [mainImg, setMainImg] = useState(
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRisv-yQgXGrto6OxQxX62JyvyQGvRsQQ760g&usqp=CAU"
   );
@@ -93,4 +97,4 @@ const App = () => {
     </Space>
   );
 };
-export default App;
+export default ProductCard;

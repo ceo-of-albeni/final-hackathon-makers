@@ -21,6 +21,7 @@ import AddGuide from "./componentsGuide/AddGuide/AddGuide";
 import GuidesList from "./componentsGuide/GuidesList/GuidesList";
 import GuideDetails from "./componentsGuide/GuideDetails/GuideDetails";
 //favorite
+import CardProduct from "./componentsAizat/CardProduct/CardProduct";
 import Favorite from "./componentsAizat/Favorite/Favorite";
 
 const Routing = () => {
@@ -65,6 +66,8 @@ const Routing = () => {
       element: <Details />,
       id: 10,
     },
+    //!-------Guide-------
+
     {
       link: "/profile",
       element: <ProfilePage />,
@@ -104,6 +107,11 @@ const Routing = () => {
       link: "/favorite",
       element: <Favorite />,
       id: 19,
+    },
+    {
+      link: "/tour-card",
+      element: <CardProduct />,
+      id: 20,
     },
   ];
 
