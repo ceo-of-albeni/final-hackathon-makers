@@ -16,27 +16,10 @@ const GuidesList = () => {
   // }, []);
   useEffect(() => {
     getGuides();
-  }, [searchParams]);
+  }, []);
 
-  useEffect(() => {
-    setSearchParams({
-      page: current,
-    });
-  }, [current]);
-
-  function getPagesCount() {
-    let pageCountGuide = [];
-    for (let i = 1; i < pages + 1; i++) {
-      pageCountGuide.push(i);
-    }
-    return pageCountGuide;
-  }
   console.log(guides);
 
-  // const onChange = page => {
-  //   console.log(page);
-  //   setCurrent(page);
-  // };
   return (
     <div className="container-5">
       <h1 style={{ color: "blue", marginLeft: "40%" }}>Guides List</h1>

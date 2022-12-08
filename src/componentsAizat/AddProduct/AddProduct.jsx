@@ -195,9 +195,6 @@ const AddProduct = () => {
                 </svg>
                 <span style={{ fontSize: "22px" }}>Сontinue</span>
               </button>
-              <a style={{ color: "white" }} href="/add-product2">
-                Заполнить
-              </a>
             </div>
           </div>
         </div>
